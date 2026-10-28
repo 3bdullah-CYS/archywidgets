@@ -1,0 +1,9 @@
+singleton DesignTokens 1.0 DesignTokens.qml
+DesktopToolbar 1.0 DesktopToolbar.qml
+IconButton 1.0 IconButton.qml
+WidgetTooltip 1.0 WidgetTooltip.qml
+BadgeTag 1.0 BadgeTag.qml
+LinearGauge 1.0 LinearGauge.qml
+ShortcutTile 1.0 ShortcutTile.qml
+AppPickerModal 1.0 AppPickerModal.qml
+FileFolderPickerModal 1.0 FileFolderPickerModal.qml

@@ -1,0 +1,10 @@
+# ArchyWidgets Release Packaging Exclusions
+# These development, testing, and agent tooling artifacts are excluded
+# when generating distribution archives (git archive).
+
+/tests export-ignore
+/.agents export-ignore
+/.serena export-ignore
+/AGENTS.md export-ignore
+/scripts/reload_plugin.sh export-ignore
+.gitattributes export-ignore

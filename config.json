@@ -1,0 +1,359 @@
+{
+  "schemaVersion": 2,
+  "targetWorkspace": 1,
+  "deskClosed": false,
+  "autoHideOnWindows": true,
+  "cardOpacity": 0.45,
+  "containers": [
+    {
+      "id": "container_clock",
+      "title": "",
+      "enabled": true,
+      "order": 0,
+      "colSpan": 2,
+      "rowSpan": 1,
+      "headerMode": "none",
+      "layoutMode": "auto",
+      "blocks": [
+        {
+          "id": "block_clock_time",
+          "kind": "time",
+          "variant": "wide",
+          "order": 0,
+          "colSpan": 2,
+          "rowSpan": 1,
+          "presentationMode": "auto",
+          "layout": {
+            "colSpan": 2,
+            "rowSpan": 1
+          },
+          "settings": {}
+        },
+        {
+          "id": "block_clock_date",
+          "kind": "date",
+          "variant": "wide",
+          "order": 1,
+          "colSpan": 2,
+          "rowSpan": 1,
+          "presentationMode": "auto",
+          "layout": {
+            "colSpan": 2,
+            "rowSpan": 1
+          },
+          "settings": {}
+        }
+      ]
+    },
+    {
+      "id": "container_folders_portal",
+      "title": "Folders",
+      "enabled": true,
+      "order": 1,
+      "colSpan": 1,
+      "rowSpan": 1,
+      "headerMode": "compact",
+      "layoutMode": "auto",
+      "blocks": [
+        {
+          "id": "block_folders_portal_grid",
+          "kind": "folder-grid",
+          "variant": "compact",
+          "order": 0,
+          "colSpan": 2,
+          "rowSpan": 2,
+          "presentationMode": "auto",
+          "layout": {
+            "colSpan": 2,
+            "rowSpan": 2
+          },
+          "settings": {
+            "items": [
+              {
+                "name": "Home",
+                "icon": "folder-home",
+                "path": "~"
+              },
+              {
+                "name": "Downloads",
+                "icon": "folder-download",
+                "path": "~/Downloads"
+              },
+              {
+                "name": "Projects",
+                "icon": "folder-development",
+                "path": "~/Projects"
+              },
+              {
+                "name": "Documents",
+                "icon": "folder-documents",
+                "path": "~/Documents"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "container_apps_portal",
+      "title": "Applications",
+      "enabled": true,
+      "order": 2,
+      "colSpan": 1,
+      "rowSpan": 1,
+      "headerMode": "compact",
+      "layoutMode": "auto",
+      "blocks": [
+        {
+          "id": "block_apps_portal_grid",
+          "kind": "app-grid",
+          "variant": "compact",
+          "order": 0,
+          "colSpan": 2,
+          "rowSpan": 2,
+          "presentationMode": "auto",
+          "layout": {
+            "colSpan": 2,
+            "rowSpan": 2
+          },
+          "settings": {
+            "items": [
+              {
+                "name": "Terminal",
+                "icon": "utilities-terminal",
+                "command": "alacritty"
+              },
+              {
+                "name": "Browser",
+                "icon": "web-browser",
+                "command": "firefox"
+              },
+              {
+                "name": "Editor",
+                "icon": "text-editor",
+                "command": "code"
+              },
+              {
+                "name": "Files",
+                "icon": "system-file-manager",
+                "command": "nautilus"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "container_system_portal",
+      "title": "",
+      "enabled": true,
+      "order": 3,
+      "colSpan": 1,
+      "rowSpan": 1,
+      "headerMode": "none",
+      "layoutMode": "auto",
+      "blocks": [
+        {
+          "id": "block_system_portal_cpu",
+          "kind": "metric",
+          "variant": "compact",
+          "order": 0,
+          "colSpan": 1,
+          "rowSpan": 1,
+          "presentationMode": "auto",
+          "layout": {
+            "colSpan": 1,
+            "rowSpan": 1
+          },
+          "settings": {},
+          "source": "cpu.percent"
+        },
+        {
+          "id": "block_system_portal_ram",
+          "kind": "metric",
+          "variant": "compact",
+          "order": 1,
+          "colSpan": 1,
+          "rowSpan": 1,
+          "presentationMode": "auto",
+          "layout": {
+            "colSpan": 1,
+            "rowSpan": 1
+          },
+          "settings": {},
+          "source": "ram.percent"
+        },
+        {
+          "id": "block_system_portal_disk",
+          "kind": "metric",
+          "variant": "compact",
+          "order": 2,
+          "colSpan": 1,
+          "rowSpan": 1,
+          "presentationMode": "auto",
+          "layout": {
+            "colSpan": 1,
+            "rowSpan": 1
+          },
+          "settings": {},
+          "source": "disk.percent"
+        }
+      ]
+    },
+    {
+      "id": "container_fan_portal",
+      "title": "Fan & Thermals",
+      "enabled": true,
+      "order": 4,
+      "colSpan": 2,
+      "rowSpan": 2,
+      "headerMode": "compact",
+      "layoutMode": "auto",
+      "blocks": [
+        {
+          "id": "block_fan_portal_temp_cpu",
+          "kind": "metric",
+          "variant": "compact",
+          "order": 0,
+          "colSpan": 2,
+          "rowSpan": 1,
+          "presentationMode": "compact",
+          "layout": {
+            "colSpan": 2,
+            "rowSpan": 1,
+            "col": 0,
+            "row": 0
+          },
+          "settings": {},
+          "source": "temperature.cpu"
+        },
+        {
+          "id": "block_fan_portal_temp_gpu",
+          "kind": "metric",
+          "variant": "compact",
+          "order": 1,
+          "colSpan": 2,
+          "rowSpan": 1,
+          "presentationMode": "compact",
+          "layout": {
+            "colSpan": 2,
+            "rowSpan": 1,
+            "col": 2,
+            "row": 0
+          },
+          "settings": {},
+          "source": "temperature.gpu"
+        },
+        {
+          "id": "block_fan_portal_temp_nvme",
+          "kind": "metric",
+          "variant": "compact",
+          "order": 2,
+          "colSpan": 2,
+          "rowSpan": 1,
+          "presentationMode": "compact",
+          "layout": {
+            "colSpan": 2,
+            "rowSpan": 1,
+            "col": 0,
+            "row": 1
+          },
+          "settings": {},
+          "source": "temperature.nvme"
+        },
+        {
+          "id": "block_fan_portal_temp_hdd",
+          "kind": "metric",
+          "variant": "compact",
+          "order": 3,
+          "colSpan": 2,
+          "rowSpan": 1,
+          "presentationMode": "compact",
+          "layout": {
+            "colSpan": 2,
+            "rowSpan": 1,
+            "col": 2,
+            "row": 1
+          },
+          "settings": {},
+          "source": "temperature.hdd"
+        },
+        {
+          "id": "block_fan_portal_fan_controls",
+          "kind": "fan-control",
+          "variant": "controls",
+          "order": 4,
+          "colSpan": 4,
+          "rowSpan": 2,
+          "presentationMode": "auto",
+          "layout": {
+            "colSpan": 4,
+            "rowSpan": 2,
+            "col": 0,
+            "row": 2
+          },
+          "settings": {
+            "modes": [
+              0,
+              1,
+              2,
+              4
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "container_net_battery_portal",
+      "title": "Network",
+      "enabled": true,
+      "order": 5,
+      "colSpan": 1,
+      "rowSpan": 1,
+      "headerMode": "compact",
+      "layoutMode": "auto",
+      "blocks": [
+        {
+          "id": "block_net_battery_portal_net",
+          "kind": "network",
+          "variant": "wide",
+          "order": 0,
+          "colSpan": 2,
+          "rowSpan": 1,
+          "presentationMode": "auto",
+          "layout": {
+            "colSpan": 2,
+            "rowSpan": 1
+          },
+          "settings": {}
+        }
+      ]
+    },
+    {
+      "id": "container_net_battery_portal_battery",
+      "title": "Battery",
+      "enabled": true,
+      "order": 6,
+      "colSpan": 1,
+      "rowSpan": 1,
+      "headerMode": "compact",
+      "layoutMode": "auto",
+      "blocks": [
+        {
+          "id": "block_net_battery_portal_battery",
+          "kind": "battery",
+          "variant": "wide",
+          "order": 0,
+          "colSpan": 2,
+          "rowSpan": 1,
+          "presentationMode": "auto",
+          "layout": {
+            "colSpan": 2,
+            "rowSpan": 1
+          },
+          "settings": {}
+        }
+      ]
+    }
+  ]
+}

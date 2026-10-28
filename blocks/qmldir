@@ -1,0 +1,12 @@
+TimeBlock 1.0 TimeBlock.qml
+MetricBlock 1.0 MetricBlock.qml
+DateBlock 1.0 DateBlock.qml
+WorkspaceBlock 1.0 WorkspaceBlock.qml
+NetworkBlock 1.0 NetworkBlock.qml
+BatteryBlock 1.0 BatteryBlock.qml
+AppGridBlock 1.0 AppGridBlock.qml
+FolderGridBlock 1.0 FolderGridBlock.qml
+FanControlBlock 1.0 FanControlBlock.qml
+SystemInfoBlock 1.0 SystemInfoBlock.qml
+NotificationBlock 1.0 NotificationBlock.qml
+TodoBlock 1.0 TodoBlock.qml

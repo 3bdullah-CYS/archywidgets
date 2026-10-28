@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "id": "io.github.3bdullah-cys.archywidgets",
+  "name": "ArchyWidgets",
+  "version": "1.0.0",
+  "author": "3bdullah-CYS",
+  "license": "MIT",
+  "repository": "https://github.com/3bdullah-CYS/archywidgets",
+  "description": "Theme-aware desktop widgets and container portals for Omarchy (Hyprland)",
+  "kinds": ["overlay"],
+  "keepLoaded": true,
+  "entryPoints": {
+    "overlay": "Desktop.qml"
+  },
+  "tags": ["desktop", "widgets", "portals", "folders", "system", "theme-aware", "hyprland"]
+}

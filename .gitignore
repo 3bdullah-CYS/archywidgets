@@ -1,0 +1,44 @@
+# Python cache & bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Logs and runtime temporary files
+*.log
+*.tmp
+/tmp/archywidgets_net.tmp
+
+# Local secrets & environment files
+.env
+.env.*
+*.local
+
+# Editor, IDE & OS files
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.serena/
+
+# Node / JS
+node_modules/
+npm-debug.log*
+
+# Internal contracts & agent files
+AGENTS.md
+.agents/
+
+# Test suite
+tests/
+
+# Localized documentation
+README.ar.md
+
+# Unused binary assets
+Font/
+
