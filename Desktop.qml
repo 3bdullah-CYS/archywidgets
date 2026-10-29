@@ -43,6 +43,7 @@ Item {
   property var todoHistory: []
   property int todoOpenCount: 0
   property bool todoAvailable: false
+  property var todoAddQueue: []
 
   // Native Notifications State
   property var recentNotifications: []
@@ -373,6 +374,32 @@ Item {
     }
   }
 
+  // Dedicated Native Todo Task Creation Process
+  // Transmits confidential task text exclusively via stdin pipe to prevent
+  // cross-user process arguments disclosure via /proc/<pid>/cmdline.
+  Process {
+    id: todoAddProcess
+    command: ["/usr/bin/python3", root.todoHelperScript, "add"]
+    stdinEnabled: true
+    onRunningChanged: {
+      if (running && root.todoAddQueue.length > 0) {
+        write(root.todoAddQueue[0] + "\n")
+        stdinEnabled = false
+      }
+    }
+    onExited: function(exitCode, exitStatus) {
+      stdinEnabled = true
+      if (root.todoAddQueue.length > 0) {
+        var q = root.todoAddQueue.slice()
+        q.shift()
+        root.todoAddQueue = q
+      }
+      if (root.todoAddQueue.length > 0) {
+        todoAddProcess.running = true
+      }
+    }
+  }
+
   readonly property var fanActionHub: QtObject {
     id: fanActionObj
     property bool busy: false
@@ -456,11 +483,12 @@ Item {
       list.unshift(tempItem)
       root.todoItems = list
       root.todoOpenCount += 1
-      var cmd = ["/usr/bin/python3", root.todoHelperScript, "add", t]
-      if (typeof Commons.Util.execArgv === "function") {
-        Commons.Util.execArgv(cmd)
-      } else {
-        Commons.Util.execDetached(cmd.join(" "))
+      var q = root.todoAddQueue ? root.todoAddQueue.slice() : []
+      q.push(t)
+      root.todoAddQueue = q
+      if (typeof todoAddProcess !== "undefined" && todoAddProcess && !todoAddProcess.running) {
+        todoAddProcess.stdinEnabled = true
+        todoAddProcess.running = true
       }
       return true
     }
