@@ -150,14 +150,23 @@ def delete_item(item_id):
 
 def main():
     if len(sys.argv) < 2:
-        print("Usage: todo_helper.py toggle <id> | add <text> | delete <id>", file=sys.stderr)
+        print("Usage: todo_helper.py toggle <id> | add [text] | delete <id>", file=sys.stderr)
         sys.exit(1)
 
     action = sys.argv[1]
     if action == "toggle" and len(sys.argv) >= 3:
         sys.exit(toggle_item(sys.argv[2]))
-    elif action == "add" and len(sys.argv) >= 3:
-        sys.exit(add_item(" ".join(sys.argv[2:])))
+    elif action == "add":
+        # Pass task text through stdin to prevent local process argument disclosure.
+        # Fall back to argv if explicitly provided from an interactive CLI command.
+        if len(sys.argv) >= 3:
+            task_text = " ".join(sys.argv[2:])
+        else:
+            try:
+                task_text = sys.stdin.read()
+            except Exception:
+                task_text = ""
+        sys.exit(add_item(task_text))
     elif action == "delete" and len(sys.argv) >= 3:
         sys.exit(delete_item(sys.argv[2]))
     else:
