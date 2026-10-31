@@ -29,6 +29,7 @@ Rectangle {
   Text {
     id: label
     anchors.centerIn: parent
+    textFormat: Text.PlainText
     font.family: (Commons.Style && Commons.Style.fontFamily) || "monospace"
     font.pixelSize: 10
     font.bold: true

@@ -22,9 +22,9 @@ esac
 
 # Apply fan mode using passwordless sudo directly (never prompt for passwords)
 if sudo -n /usr/local/libexec/lenovo-fan-control-apply "$mode" 2>/dev/null; then
-    echo "$mode" > /tmp/lenovo_fan_mode
-    if [[ -n "$XDG_RUNTIME_DIR" && -d "$XDG_RUNTIME_DIR" ]]; then
-        echo "$mode" > "$XDG_RUNTIME_DIR/archywidgets_fan_mode"
+    state_dir="${XDG_RUNTIME_DIR:-/run/user/$(id -u)}"
+    if [[ -d "$state_dir" && -w "$state_dir" ]]; then
+        echo "$mode" > "$state_dir/archywidgets_fan_mode"
     fi
     if command -v notify-send >/dev/null 2>&1; then
         notify-send -a "ArchyWidgets" -i "dialog-information" "Fan Control" "Fan mode set: $mode_name" || true

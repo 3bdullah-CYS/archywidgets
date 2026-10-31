@@ -338,6 +338,7 @@ Item {
                 Text {
                   id: taskTextItem
                   Layout.fillWidth: true
+                  textFormat: Text.PlainText
                   text: taskRow.modelData.text || ""
                   font.family: Commons.Style.fontFamily
                   font.pixelSize: root.dp(11, 9)

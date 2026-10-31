@@ -172,6 +172,7 @@ Rectangle {
 
       Text {
         Layout.fillWidth: true
+        textFormat: Text.PlainText
         text: root.labelText
         font.family: Commons.Style.fontFamily
         font.pixelSize: root.dp(10, 10)
@@ -184,6 +185,7 @@ Rectangle {
       Text {
         Layout.fillWidth: true
         visible: Boolean(root.subText) && root.height >= root.dp(34, 28)
+        textFormat: Text.PlainText
         text: root.subText
         font.family: Commons.Style.fontFamily
         font.pixelSize: root.dp(10, 10)
@@ -245,6 +247,7 @@ Rectangle {
       id: gridTitle
       Layout.fillWidth: true
       horizontalAlignment: Text.AlignHCenter
+      textFormat: Text.PlainText
       text: root.labelText
       font.family: Commons.Style.fontFamily
       font.pixelSize: (root.height < root.dp(36, 30) || root.width < root.dp(65, 50))
@@ -263,6 +266,7 @@ Rectangle {
       Layout.fillWidth: true
       horizontalAlignment: Text.AlignHCenter
       visible: Boolean(root.subText) && (root.height >= root.dp(56, 46))
+      textFormat: Text.PlainText
       text: root.subText
       font.family: Commons.Style.fontFamily
       font.pixelSize: root.dp(9, 8)
