@@ -60,6 +60,7 @@ Item {
         spacing: 1
 
         Text {
+          textFormat: Text.PlainText
           text: root.connected ? root.networkName : "Disconnected"
           font.family: Commons.Style.fontFamily
           font.pixelSize: root.dp(14, 11)
@@ -71,6 +72,7 @@ Item {
         }
 
         Text {
+          textFormat: Text.PlainText
           text: root.interfaceSummary
           font.family: Commons.Style.fontFamily
           font.pixelSize: root.dp(10, 10)
@@ -93,6 +95,7 @@ Item {
         Text {
           id: ipBadgeText
           anchors.centerIn: parent
+          textFormat: Text.PlainText
           text: root.networkIp
           font.family: Commons.Style.fontFamily
           font.pixelSize: root.dp(10, 10)

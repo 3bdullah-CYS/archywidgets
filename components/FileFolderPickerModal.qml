@@ -233,6 +233,7 @@ Rectangle {
 
           Text {
             Layout.fillWidth: true
+            textFormat: Text.PlainText
             text: root.displayPath(root.currentFolder)
             font.family: Commons.Style.fontFamily
             font.pixelSize: 10
@@ -318,6 +319,7 @@ Rectangle {
 
             Text {
               Layout.fillWidth: true
+              textFormat: Text.PlainText
               text: entryDelegate.fileName
               font.family: Commons.Style.fontFamily
               font.pixelSize: 10

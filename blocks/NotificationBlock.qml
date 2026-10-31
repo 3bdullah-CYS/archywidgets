@@ -210,6 +210,7 @@ Item {
                   spacing: root.dp(4, 2)
 
                   Text {
+                    textFormat: Text.PlainText
                     text: notifCard.modelData.app || "System"
                     font.family: Commons.Style.fontFamily
                     font.pixelSize: root.dp(9, 8)
@@ -218,6 +219,7 @@ Item {
                   }
 
                   Text {
+                    textFormat: Text.PlainText
                     text: "· " + root.formatTimeAgo(notifCard.modelData.timestamp)
                     font.family: Commons.Style.fontFamily
                     font.pixelSize: root.dp(9, 8)
@@ -230,6 +232,7 @@ Item {
                 // Summary
                 Text {
                   Layout.fillWidth: true
+                  textFormat: Text.PlainText
                   text: notifCard.modelData.summary || ""
                   font.family: Commons.Style.fontFamily
                   font.pixelSize: root.dp(10, 9)
@@ -243,6 +246,7 @@ Item {
                 Text {
                   visible: (notifCard.modelData.body && notifCard.modelData.body.length > 0)
                   Layout.fillWidth: true
+                  textFormat: Text.PlainText
                   text: notifCard.modelData.body || ""
                   font.family: Commons.Style.fontFamily
                   font.pixelSize: root.dp(9, 8)

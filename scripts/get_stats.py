@@ -399,14 +399,16 @@ while True:
     
     # 6. Fan mode state
     fan_mode = -1
-    archy_fan = os.path.join(os.environ.get("XDG_RUNTIME_DIR", "/tmp"), "archywidgets_fan_mode")
-    legacy_fan = "/tmp/lenovo_fan_mode"
-    for p in (archy_fan, legacy_fan):
-        if os.path.exists(p):
-            raw_fm = read_file_safe(p)
-            if raw_fm.isdigit():
-                fan_mode = int(raw_fm)
-                break
+    runtime_dir = os.environ.get("XDG_RUNTIME_DIR", f"/run/user/{os.getuid()}" if hasattr(os, "getuid") else "")
+    archy_fan = os.path.join(runtime_dir, "archywidgets_fan_mode") if runtime_dir else ""
+    if archy_fan and os.path.exists(archy_fan):
+        try:
+            if not hasattr(os, "getuid") or os.stat(archy_fan).st_uid == os.getuid():
+                raw_fm = read_file_safe(archy_fan)
+                if raw_fm.isdigit():
+                    fan_mode = int(raw_fm)
+        except Exception:
+            pass
     if fan_mode not in (0, 1, 2, 4) and os.path.exists(fan_path):
         raw_val = read_file_safe(fan_path)
         if raw_val.isdigit():

@@ -332,7 +332,17 @@ Item {
   // Persistence Process
   Process {
     id: saveProcess
+    property string pendingPayload: ""
+    stdinEnabled: true
+    onRunningChanged: {
+      if (running && pendingPayload.length > 0) {
+        write(pendingPayload)
+        stdinEnabled = false
+      }
+    }
     onExited: function(exitCode, exitStatus) {
+      stdinEnabled = true
+      pendingPayload = ""
       if (root.pendingV2Candidate === null) return
       if (exitCode === 0) {
         root.v2SessionConfig = ConfigModel.clone(root.pendingV2Candidate)
@@ -1335,7 +1345,9 @@ Item {
     var valRes = ConfigModel.validateV2(normalized)
     if (!valRes || !valRes.ok) return false
     root.pendingV2Candidate = ConfigModel.clone(valRes.value)
-    saveProcess.command = ["/usr/bin/python3", root.saveConfigScript, JSON.stringify(valRes.value), root.userConfigFile]
+    saveProcess.pendingPayload = JSON.stringify(valRes.value) + "\n"
+    saveProcess.stdinEnabled = true
+    saveProcess.command = ["/usr/bin/python3", root.saveConfigScript, "-", root.userConfigFile]
     saveProcess.running = true
     return true
   }

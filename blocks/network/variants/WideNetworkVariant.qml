@@ -57,6 +57,7 @@ Item {
         spacing: 1
 
         Text {
+          textFormat: Text.PlainText
           text: root.connected ? root.networkName : "Disconnected"
           font.family: Commons.Style.fontFamily
           font.pixelSize: root.dp(12, 10)
@@ -68,6 +69,7 @@ Item {
         }
 
         Text {
+          textFormat: Text.PlainText
           text: root.connected && root.networkIp.length > 0 ? (root.interfaceSummary + " • " + root.networkIp) : root.interfaceSummary
           font.family: Commons.Style.fontFamily
           font.pixelSize: root.dp(10, 10)
